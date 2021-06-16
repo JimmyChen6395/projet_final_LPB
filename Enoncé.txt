@@ -1,0 +1,110 @@
+PARTIE 01
+
+1 Réaliser la scritp sql pour insérer les colonnes dans notre base de données magasin
+2 Dans l'application, créer dossier:
+src/img
+src/common/template.php
+src/common/header.php
+
+
+3 src/common/template.php
+coder la page html type avec title = $titre
+importer header.php
+
+4 src/common/template.php
+coder le header avec logo de l'entreprise d'un coté et menu de l'autre. Importer scritp font awasome sur template.php
+ajouter les logo à la nav du header.php
+
+5 creer src/css + style.css
+mettre en forme le header 
+
+6 Créer src/pages/register.php
+coder un formulaire qui comprendra les champs nécéssaire à créer le user dans notre db;
+inserer deux entrées dans la colonne role (admin et client)
+mettre en forme le formulaire
+
+7 Créer src/fonctions/dbFonction.php
+coder la requete sql pour envoyer user dans db
+
+8 src/pages/register.php
+importer dbFonctions.php
+traiter le formulaire et appeler la fonction createuse
+
+9. src/fonctions/dbFonction.php
+Ajouter avant de creer le user, la vérification si le login ou l'email n'est pas déjà pris
+si tel est le cas, simuler un get error et prévoir sur register.php un endroit pour traiter l'erreur
+
+PARTIE 02
+
+1. creer src/pages/login.php
+inclure titre et header.php
+
+2 créer en html le formulaire pour se loguer (login et mot de pass)
+de préférence utiliser la même structure que sur register pour éviter de recoder du css
+
+3 src/fonctions/dbFonction.php
+coder la fonction getUserByLogin
+
+4 src/pages/login.php
+traiter le formulaire.
+Si le user est correctement identifié, creer des session pour encapsuler les données utile et modifier le menu du header pour afficher
+un menu plus pertinent
+sur register.php et login.php si $session["connecté"] existe, rediriger vers acceuil
+
+5 src/common/header.php
+Rajouter un bouton pour se déconnecter et traiter la demande
+
+
+
+PARTIE 3
+
+1. créer src/common/listCatégorie.php et
+src/common/derniersArticles.php
+src/common/promotion.php
+
+promotion.php
+coder en dur 5 vignettes promotionnelle
+
+2 listCatégorie.php coder en dur une liste fictive de catégorie d'article informatique
+
+3 derniersArticles.php
+coder une card qui comprendra l'image de l'article, sa catégorie, le nom de l'article et le début d'une courte description
+reproduire 9 fois cette card et mettre en forme en css
+
+
+4 src/common/footer.php
+Créer un mini footer que l'on enrichira en fin de module si le temps le permet
+
+
+
+PARTIE 4
+1 créer src/pages/admin
+header.php rajouter un lien vers la page admin si le user connecté est admin
+src/pages/admin importer le template et le footer
+
+2 creer src/pages/adminContent/menuAdmin.php
+coder un menu en ligne qui comprendra le bouton ajouter produit et un bouton catégorie de produit
+intégrer ce menu sous le menu principal
+
+
+3 creer src/pages/adminContent/categorieProduit.php
+creer dbCategorieFonctions.php  et coder la requete pour récupérer la liste des catégorie déjà existante
+categorieProduit.php lister les catégorie déjà existante, créer un bouton pour faire apparaître le formulaire pour ajouter un nouveau produit
+dans dbCategorieFonctions.php coder la requete pour envoyer la nouvelle catégorie de produit
+
+4 creer src/pages/adminContent/ajouterproduit.php
+coder le formulaire qui permet d'ajouter un produit.
+pour la description du produit, foncton nl2br(htmlspecialchars($description)) 
+pour prendre en compte les passage à la ligne
+ 
+5 créer dbProduitsFonctions.php et coder la requete pour envoyer un nouveau produit dans la base de données
+Par facilité, créer une focntion qui va rechercher l'id d'une catégorie selon le nom de cette catégorie
+
+ATTENTION, la requete doit se faire en 3 temps:
+envoyer fichier photo dans repertoire img/produit (coder la fonction sendImg dans le fichier src/fonctions/mesFonctions.php (a créer)
+si ok
+envoyer productname, imgurl, description, categoryId et onTop dans la table product
+envoyer le reste des données dans la table fiche technique en ayant soin de récupérer au préalable l'id du produit que nous venons d'envoyer dans la table product
+require ce fichier sur ajouterproduit.php et tester si l'envoi se fait
+
+6 Encoder 6 nouveaux produit que vous envoyez à la une

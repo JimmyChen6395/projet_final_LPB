@@ -1,3 +1,8 @@
+<?php 
+    session_start();
+?>
+
+
 <!DOCTYPE html>
 <html lang="fr">
 <head>
@@ -11,35 +16,9 @@
 </head>
 <body>
 
-    <style>
-        .navbar{
-            border: solid 1px red;
-        }
-    </style>
+    <?php 
+        require "header.php"
 
-
-    <header>
-        <nav class="navbar" role="navigation" aria-label="main navigation">
-            <div class="navbar-brand">
-                <a class="navbar-item" href="#">
-                 <img src="/src/img/E.gif" width="112" height="28">
-                </a>
-            </div>
-
-            <div class="navbar-end">
-                <div class="navbar-item">
-                    <div class="buttons">
-                        <a class="button is-dark" href="../../src/pages/login.php">
-                            <strong>Se connecter</strong>
-                        </a>
-                        <a class="button is-dark" href="../../src/pages/register.php">
-                            <strong>S'enregistrer</strong>
-                        </a>
-                        <a class="button is-light">
-                            Panier
-                        </a>
-            </div>
-        </nav>
-    </header>
+    ?>
 </body>
 </html>
