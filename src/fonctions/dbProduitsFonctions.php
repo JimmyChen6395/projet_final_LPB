@@ -45,6 +45,28 @@ function addNewProduct($categorieProduit, $productName, $fichier, $prix, $taille
 }
 
 
+//2. dans dbProduitsFonctions.php, coder la fonction qui va récupérer les 5 derniers produits dont la colonne onTop est true
+function fiveOnTop(){
+
+    $bdd = bdd();
+
+    $requete = $bdd->prepare("SELECT p.productId, p.productName, p.imgUrl, ft.prix ,c.typeProduct 
+                                from product p
+                                INNER JOIN category c
+                                on c.categoryId = p.categoryId
+                                INNER JOIN fichetechnique ft
+                                on ft.productId = p.productId
+                                WHERE p.onTop = 1
+                                ORDER BY p.productId
+                                DESC
+                                LIMIT 5");
+    $requete->execute([]);
+    $result = $requete->fetchAll(PDO::FETCH_OBJ);
+
+    return $result;
+}
+
+
 
 
 
