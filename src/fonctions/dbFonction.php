@@ -1,8 +1,8 @@
 <?php 
-   
+require "../../src/fonctions/dbaccess.php";
    function createUser($login, $mdp, $email, $ban){
 
-      $bdd = new PDO ('mysql:host=localhost;dbname=magasin_tech;vharset=utf8', 'root', '');
+      $bdd = bdd();
 
       // vérifier si le mail et le login existent
       $requete = $bdd->prepare('SELECT COUNT(*) AS x 
@@ -32,14 +32,9 @@
    
    
 
-   // function getUserByLogin ($login){
-   //    $bdd = new PDO ('mysql:host=localhost;dbname=magasin_tech;vharset=utf8', 'root', '');
-   //    $requete = $bdd->prepare('SELECT login from users wher login = ?');
-   //    $requete->execute(array($login)) or die(print_r($requete->errorInfo(),TRUE));
-   // }
 
    function getUserByLogin($login, $mdp){
-      $bdd = new PDO("mysql:host=localhost;dbname=magasin_tech;charset=utf8", "root", "");
+      $bdd = bdd();
       $requete = $bdd->prepare("SELECT * FROM users WHERE login = ?");
       $requete->execute(array($login));
 

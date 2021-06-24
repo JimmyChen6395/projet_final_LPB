@@ -108,3 +108,30 @@ envoyer le reste des données dans la table fiche technique en ayant soin de ré
 require ce fichier sur ajouterproduit.php et tester si l'envoi se fait
 
 6 Encoder 6 nouveaux produit que vous envoyez à la une
+
+
+PARTIE 5
+
+1. Refactoriser les fichiers se trouvant dans fonctions/
+Créer le fichier dbAccess et coder la connection à la base de données.
+Importer ce fichier dans chaque fichier fonction ou il est nécéssaire et changer la variable $bdd en 
+$bdd = dbAccess();
+
+2. dans dbProduitsFonctions.php, coder la fonction qui va récupérer les 5 derniers produits dont la colonne onTop est true
+
+3.sur index.php, appeler la fonction codée en 2. et générer dynamiquement la première section en injectant
+ les 5 articles qui doivent être onTop.
+
+4. dans dbProduitsFonctions.php coder la fonctions qui récupere la liste des derniers produit, faire un filtres 
+sur les 12 derniers produits de la db. Injecter cette liste dans l'espace "Nos nouveautés" de la page index.php
+
+5. Utiliser la fonction qui liste les catégories d'articles présents dans la Db pour injecter cette liste ./src/common/listCategorie.php
+Dans chaque élément de la liste, placer un hypperlien qui renverra sur une page ou s'affichera tout les articles présents dans cette catégorie (src/pages/categories.php).
+
+6. Créer la page src/pages/categories.php et injecter le contenu selon l'id présent sur la page. Si pas d'id présent dans l'url, renvoyer l'utilisateur vers l'accueil.
+Dans dbProduitsFonctions.php, coder la fonction qui va récupérer tous les produits selon leur id. utiliser la fonction pour générer le contenu sur la pages categories.php
+
+7. Créer le fichier src/pages/article.php, importer le template et coder une fiche produit en html qui reprends les différentes informations présente dans un produit.
+dans dbProduitsFonctions.php, coder la fonction pour récupérer toutes les infos utiles d'un produit selon son id.
+Sur la page article.php, utiliser cette focntions pour récupérer les infos et générer la page selon l'id recu dans l'url. 
+Si l'utilisateur arrive sur cette page et que l'id produit est inconnu, renvoyer vers l'acceuil

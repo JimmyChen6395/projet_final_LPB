@@ -9,45 +9,52 @@
 
 
 
-<style>
-        .navbar{
-            border: solid 1px red;
-        }
-</style>
+
 
 
 <header>
-        <nav class="navbar" role="navigation" aria-label="main navigation">
-            <div class="navbar-brand">
-                <a class="navbar-item" href="#">
-                    <img src="/src/img/E.gif" width="112" height="28">
-                </a>
-            </div>
-
+    <nav class="navbar navbar-expand-lg navbar-light bg-success">
+        <div class="container-fluid">
+            <a class="navbar-brand" href="/index.php">
+                <img src="/src/img/E.gif" alt="" width="100" height="88">
+            </a>    
+            <!-- <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button> -->
             <?php
                 if(isset($_SESSION["connected"]) && $_SESSION["connected"] == true){
+
             ?>
-                <li>Bonjour <?=$_SESSION["login"]?></li>
-                <li><a href="../../index.php?deconnect=true"><i class="fas fa-sign-out-alt"></i>Déconnection</a></li>
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav">
+                    <li class="nav-item">Bonjour <?=$_SESSION["login"]?></li>
+                    <li class="nav-item"><a href="../../index.php?deconnect=true"><i class="fas fa-sign-out-alt"></i>Déconnection</a></li>
+                </ul>
+            </div>    
             <?php
                 } else {
             ?>
+            <div class="collapse navbar-collapse d-flex justify-content-end" id="navbarNav">
+                <ul class="navbar-nav">
+                    <li class="nav-item">
+                        <a class="nav-link active" aria-current="page" href="../../src/pages/login.php">Se connecter</a>
+                    </li>
 
-            <div class="navbar-end">
-                <div class="navbar-item">
-                    <div class="buttons">
-                        <a class="button is-dark" href="../../src/pages/login.php">
-                            <strong>Se connecter</strong>
-                        </a>
-                        <a class="button is-dark" href="../../src/pages/register.php">
-                            <strong>S'enregistrer</strong>
-                        </a>
+                    <li class="nav-item">
+                        <a class="nav-link active" aria-current="page" href="../../src/pages/register.php">S'enregistrer</a>
+                    </li>
             <?php 
                 } 
             ?>  
-                        <a class="button is-light">
-                            Panier
-                        </a>
+                    <li class="nav-item">
+                        <a class="nav-link active" aria-current="page" href="#">Panier</a>
+                    </li>
+                    <li class="nav-item">
+                    
+                        <a class="nav-link active" aria-current="page" href="../../src/pages/adminContent/menuAdmin.php">Admin</a>
+                    </li>               
+                </ul>
             </div>
-        </nav>
-    </header>
+        </div>
+    </nav>   
+</header>

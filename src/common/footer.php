@@ -1,7 +1,11 @@
-<footer class="footer">
-  <div class="content has-text-centered">
-    <p>
-      <h3>TECH</h3>
-    </p>
-  </div>
+<style>
+  .footer{
+    padding: 10rem;
+    border: solid blue 5px;
+  
+  }
+</style>
+
+<footer>
+  Ceci est un footer
 </footer>
